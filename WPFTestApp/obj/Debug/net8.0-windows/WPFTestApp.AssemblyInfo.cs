@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("WPFTestApp")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+09bac1a26d2860e523d186eaadd3a3b54e13c144")]
 [assembly: System.Reflection.AssemblyProductAttribute("WPFTestApp")]
 [assembly: System.Reflection.AssemblyTitleAttribute("WPFTestApp")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

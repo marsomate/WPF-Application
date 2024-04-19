@@ -8,6 +8,6 @@ build_property.PlatformNeutralAssembly =
 build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = WPFTestApp
-build_property.ProjectDir = C:\Users\mmarso\source\repos\WPFTestApp\
+build_property.ProjectDir = C:\Users\mmarso\Documents\GitHub\WPF-Application\WPFTestApp\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 

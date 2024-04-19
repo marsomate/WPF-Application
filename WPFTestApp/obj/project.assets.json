@@ -14,11 +14,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\mmarso\\source\\repos\\WPFTestApp\\WPFTestApp.csproj",
+      "projectUniqueName": "C:\\Users\\mmarso\\Documents\\GitHub\\WPF-Application\\WPFTestApp\\WPFTestApp.csproj",
       "projectName": "WPFTestApp",
-      "projectPath": "C:\\Users\\mmarso\\source\\repos\\WPFTestApp\\WPFTestApp.csproj",
+      "projectPath": "C:\\Users\\mmarso\\Documents\\GitHub\\WPF-Application\\WPFTestApp\\WPFTestApp.csproj",
       "packagesPath": "C:\\Users\\mmarso\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\mmarso\\source\\repos\\WPFTestApp\\obj\\",
+      "outputPath": "C:\\Users\\mmarso\\Documents\\GitHub\\WPF-Application\\WPFTestApp\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
