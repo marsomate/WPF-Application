@@ -1,7 +1,6 @@
 *..vs
 *.vs
-*.bin
 /WPFTestApp/.vs
-*.bin
-*.bin
+bin
+obj
 WPFTestApp/.vs/WPFTestApp/v17/.suo
