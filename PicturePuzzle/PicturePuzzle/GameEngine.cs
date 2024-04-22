@@ -34,7 +34,9 @@ namespace PicturePuzzle
         {
             int buttonId = Convert.ToInt32(clickedButton.Name.Remove(0, "button".Length));
             (int buttonPos_x, int buttonPos_y) = FindButtonPosition(buttonId);
-
+            Debug.WriteLine(currentPos[0, 0]);
+            Debug.WriteLine(currentPos[1, 2]);
+            Debug.WriteLine(currentPos[2, 1]);
             if (IsNextToEmpty(buttonPos_x, buttonPos_y))
             {
                 swapButtons(clickedButton);
@@ -76,8 +78,9 @@ namespace PicturePuzzle
         {
             (int emptyPos_x, int emptyPos_y) = FindButtonPosition(-1);
             Debug.Write($"Empty {emptyPos_x}, {emptyPos_y}");
-            currentPos[emptyPos_x, emptyPos_y] = currentPos[buttonPos_x, buttonPos_x];
-            currentPos[buttonPos_x, buttonPos_x] = -1;
+            Debug.Write($"\nButton {buttonPos_x}, {buttonPos_y}");
+            currentPos[emptyPos_x, emptyPos_y] = currentPos[buttonPos_x, buttonPos_y];
+            currentPos[buttonPos_x, buttonPos_y] = -1;
 
             Debug.Write('\n');
             for (int i = 0; i < currentPos.GetLength(0); i++)
