@@ -13,35 +13,35 @@
                 Height="35"
                 Width="35"
                 Margin="341,161,0,0"
-                VerticalAlignment="Top"/>
+                VerticalAlignment="Top" Click="button1_Click"/>
         <Button x:Name="button2"
             Content="2"
             HorizontalAlignment="Left"
             Height="35"
             Width="35"
             Margin="381,161,0,0"
-            VerticalAlignment="Top"/>
+            VerticalAlignment="Top" Click="button2_Click"/>
         <Button x:Name="button3"
             Content="3"
             HorizontalAlignment="Left"
             Height="35"
             Width="35"
             Margin="421,161,0,0"
-            VerticalAlignment="Top"/>
+            VerticalAlignment="Top" Click="button3_Click"/>
         <Button x:Name="button4"
             Content="4"
             HorizontalAlignment="Left"
             Height="35"
             Width="35"
             Margin="341,201,0,0"
-            VerticalAlignment="Top"/>
+            VerticalAlignment="Top" Click="button4_Click"/>
         <Button x:Name="button5"
             Content="5"
             HorizontalAlignment="Left"
             Height="35"
             Width="35"
             Margin="381,201,0,0"
-            VerticalAlignment="Top"/>
+            VerticalAlignment="Top" Click="button5_Click"/>
         <Button x:Name="button6"
             Content="6"
             HorizontalAlignment="Left"
@@ -55,14 +55,14 @@
             Height="35"
             Width="35"
             Margin="341,241,0,0"
-            VerticalAlignment="Top"/>
+            VerticalAlignment="Top" Click="button7_Click"/>
         <Button x:Name="button8"
             Content="8"
             HorizontalAlignment="Left"
             Height="35"
             Width="35"
             Margin="381,241,0,0"
-            VerticalAlignment="Top"/>
+            VerticalAlignment="Top" Click="button8_Click"/>
         <Button x:Name="empty"
             Content=""
             HorizontalAlignment="Left"
