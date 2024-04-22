@@ -1,0 +1,75 @@
+﻿<Window x:Class="PicturePuzzle.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PicturePuzzle"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <Button x:Name="button1"
+                Content="1"
+                HorizontalAlignment="Left"
+                Height="35"
+                Width="35"
+                Margin="341,161,0,0"
+                VerticalAlignment="Top"/>
+        <Button x:Name="button2"
+            Content="2"
+            HorizontalAlignment="Left"
+            Height="35"
+            Width="35"
+            Margin="381,161,0,0"
+            VerticalAlignment="Top"/>
+        <Button x:Name="button3"
+            Content="3"
+            HorizontalAlignment="Left"
+            Height="35"
+            Width="35"
+            Margin="421,161,0,0"
+            VerticalAlignment="Top"/>
+        <Button x:Name="button4"
+            Content="4"
+            HorizontalAlignment="Left"
+            Height="35"
+            Width="35"
+            Margin="341,201,0,0"
+            VerticalAlignment="Top"/>
+        <Button x:Name="button5"
+            Content="5"
+            HorizontalAlignment="Left"
+            Height="35"
+            Width="35"
+            Margin="381,201,0,0"
+            VerticalAlignment="Top"/>
+        <Button x:Name="button6"
+            Content="6"
+            HorizontalAlignment="Left"
+            Height="35"
+            Width="35"
+            Margin="421,201,0,0"
+            VerticalAlignment="Top" Click="button6_Click"/>
+        <Button x:Name="button7"
+            Content="7"
+            HorizontalAlignment="Left"
+            Height="35"
+            Width="35"
+            Margin="341,241,0,0"
+            VerticalAlignment="Top"/>
+        <Button x:Name="button8"
+            Content="8"
+            HorizontalAlignment="Left"
+            Height="35"
+            Width="35"
+            Margin="381,241,0,0"
+            VerticalAlignment="Top"/>
+        <Button x:Name="empty"
+            Content=""
+            HorizontalAlignment="Left"
+            Height="35"
+            Width="35"
+            Margin="421,241,0,0"
+            VerticalAlignment="Top"/>
+
+    </Grid>
+</Window>
