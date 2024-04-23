@@ -12,8 +12,9 @@ namespace PicturePuzzle
     {
         public int[,] solution;
         public int[,] currentPos;
+        private Action gameSolved;
 
-        public GameEngine()
+        public GameEngine(Action solved)
         {
             solution = new int[,]
             {
@@ -27,7 +28,12 @@ namespace PicturePuzzle
                 { 1, 2, 3 },
                 { 4, 5, 6 },
                 { 7, 8, -1 }
+                //{ 8, 6, 4 },
+                //{ 7, 1, 5 },
+                //{ 2, 3, -1 }
             };
+
+            gameSolved = solved;
         }
 
         public void TryMove(Button clickedButton, Action<Button> swapButtons)
@@ -41,6 +47,9 @@ namespace PicturePuzzle
             {
                 swapButtons(clickedButton);
                 UpdateArrayPosition(buttonPos_x, buttonPos_y);
+
+                if(IsSolved())
+                { gameSolved(); }
             }
         }
 
@@ -91,6 +100,22 @@ namespace PicturePuzzle
                 }
                 Debug.Write('\n');
             }
+        }
+
+        private bool IsSolved()
+        {
+            bool solved = true;
+
+            for (int i = 0; i < currentPos.GetLength(0); i++)
+            {
+                for (int j = 0; j < currentPos.GetLength(1); j++)
+                {
+                    if (currentPos[i, j] != solution[i, j])
+                    { solved = false; }
+                }
+            }
+
+            return solved;
         }
     }
 }

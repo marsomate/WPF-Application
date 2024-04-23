@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Controls.Primitives;
 using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
@@ -26,9 +27,13 @@ namespace PicturePuzzle
         {
             InitializeComponent();
 
-            gameEngine = new GameEngine();
+            gameEngine = new GameEngine(GameSolved);
         }
 
+        private void GameSolved()
+        {
+            MessageBox.Show("Sikeres megoldás!");
+        }
 
         public void SwapButtons(Button button)
         {
