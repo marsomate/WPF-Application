@@ -35,52 +35,52 @@ namespace PicturePuzzle
             MessageBox.Show("Sikeres megoldás!");
         }
 
-        public void SwapButtons(Button button)
+        public void SwapButtons(Button button1, Button button2)
         {
-            var empty_pos = empty.Margin;
-            empty.Margin = button.Margin;
-            button.Margin = empty_pos;
+            var temp_pos = button2.Margin;
+            button2.Margin = button1.Margin;
+            button1.Margin = temp_pos;
         }
 
 
         private void button1_Click(object sender, RoutedEventArgs e)
         {
-            gameEngine.TryMove(button1, SwapButtons);
+            gameEngine.TryMove(button1, empty, SwapButtons);
         }
 
         private void button2_Click(object sender, RoutedEventArgs e)
         {
-            gameEngine.TryMove(button2, SwapButtons);
+            gameEngine.TryMove(button2, empty, SwapButtons);
         }
 
         private void button3_Click(object sender, RoutedEventArgs e)
         {
-            gameEngine.TryMove(button3, SwapButtons);
+            gameEngine.TryMove(button3, empty, SwapButtons);
         }
 
         private void button4_Click(object sender, RoutedEventArgs e)
         {
-            gameEngine.TryMove(button4, SwapButtons);
+            gameEngine.TryMove(button4, empty, SwapButtons);
         }
 
         private void button5_Click(object sender, RoutedEventArgs e)
         {
-            gameEngine.TryMove(button5, SwapButtons);
+            gameEngine.TryMove(button5, empty, SwapButtons);
         }
 
         private void button6_Click(object sender, RoutedEventArgs e)
         {
-            gameEngine.TryMove(button6, SwapButtons);
+            gameEngine.TryMove(button6, empty, SwapButtons);
         }
 
         private void button7_Click(object sender, RoutedEventArgs e)
         {
-            gameEngine.TryMove(button7, SwapButtons);
+            gameEngine.TryMove(button7, empty, SwapButtons);
         }
 
         private void button8_Click(object sender, RoutedEventArgs e)
         {
-            gameEngine.TryMove(button8, SwapButtons);
+            gameEngine.TryMove(button8, empty, SwapButtons);
         }
     }
 }

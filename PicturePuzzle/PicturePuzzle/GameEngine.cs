@@ -36,7 +36,7 @@ namespace PicturePuzzle
             gameSolved = solved;
         }
 
-        public void TryMove(Button clickedButton, Action<Button> swapButtons)
+        public void TryMove(Button clickedButton, Button emptyButton, Action<Button, Button> swapButtons)
         {
             int buttonId = Convert.ToInt32(clickedButton.Name.Remove(0, "button".Length));
             (int buttonPos_x, int buttonPos_y) = FindButtonPosition(buttonId);
@@ -45,7 +45,7 @@ namespace PicturePuzzle
             Debug.WriteLine(currentPos[2, 1]);
             if (IsNextToEmpty(buttonPos_x, buttonPos_y))
             {
-                swapButtons(clickedButton);
+                swapButtons(clickedButton, emptyButton);
                 UpdateArrayPosition(buttonPos_x, buttonPos_y);
 
                 if(IsSolved())
