@@ -126,5 +126,8 @@
   <ItemGroup>
     <None Include="kepek\kutya\kep2.jpg" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="kepek\background.jpg" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
