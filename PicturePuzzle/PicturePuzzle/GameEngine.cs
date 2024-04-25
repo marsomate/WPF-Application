@@ -11,32 +11,34 @@ namespace PicturePuzzle
 {
     public class GameEngine
     {
-        public int[,] solution;
-        public int[,] currentPos;
+        public string[,] solution;
+        public string[,] currentPos;
         private Action gameSolved;
+        private Action<string[,]> syncPositions;
 
-        public GameEngine(Action solved)
+        public GameEngine(Action solved, Action<string[,]> syncPos)
         {
-            solution = new int[,]
+            solution = new string[,]
             {
-                { 1, 2, 3 },
-                { 4, 5, 6 },
-                { 7, 8, -1 }
+                { "button1", "button2", "button3" },
+                { "button4", "button5", "button6" },
+                { "button7", "button8", "empty" }
             };
-            
-            currentPos = new int[,]
+
+            currentPos = new string[,]
             {
-                { 1, 2, 3 },
-                { 4, 5, 6 },
-                { 7, 8, -1 }
+                { "button1", "button2", "button3" },
+                { "button4", "button5", "button6" },
+                { "button7", "button8", "empty" }
             };
 
             gameSolved = solved;
+            syncPositions = syncPos;
         }
 
         public void TryMove(Button clickedButton, Button emptyButton, Action<Button, Button> swapButtons)
         {
-            int buttonId = Convert.ToInt32(clickedButton.Name.Remove(0, "button".Length));
+            string buttonId = clickedButton.Name;
             (int buttonPos_x, int buttonPos_y) = FindButtonPosition(buttonId);
             Debug.WriteLine(currentPos[0, 0]);
             Debug.WriteLine(currentPos[1, 2]);
@@ -54,29 +56,32 @@ namespace PicturePuzzle
         public void RandomizeCurrentPositions()
         {
             Random random = new Random();
-            int buttonIndex = -1;
             List<Tuple<int, int>> takenPositions = new  List<Tuple<int, int>>();
+            string[,] tempPos = new string[3, 3];
 
-            do
+            for (int i = 0; i < currentPos.GetLength(0); i++)
             {
-                for (int i = 0; i < currentPos.GetLength(0); i++)
+                for (int j = 0; j < currentPos.GetLength(1); j++)
                 {
-                    for (int j = 0; j < currentPos.GetLength(1); j++)
+                    Tuple<int, int> new_x_y;
+                    do
                     {
-                        Tuple<int, int> new_x_y;
-                        do
+                        new_x_y = new Tuple<int, int>(random.Next(0, 3), random.Next(0, 3));
+                        if (!takenPositions.Contains(new_x_y))
                         {
-                            new_x_y = new Tuple<int, int>(random.Next(0, 3), random.Next(0, 3));
-                            if (!takenPositions.Contains(new_x_y))
-                            { break; }
-
-                        } while (takenPositions.Contains(new_x_y));
-                    }
+                            takenPositions.Add(new_x_y);
+                            break;
+                        }
+                    } while (takenPositions.Contains(new_x_y));
+                    tempPos[new_x_y.Item1, new_x_y.Item2] = currentPos[i, j];
                 }
-            } while (buttonIndex <= 8);
+            }
+
+            currentPos = tempPos;
+            syncPositions(currentPos);
         }
 
-        private (int, int) FindButtonPosition(int buttonId)
+        private (int, int) FindButtonPosition(string buttonId)
         {
             (int, int) buttonPos = (0, 0);
 
@@ -94,13 +99,13 @@ namespace PicturePuzzle
 
         private bool IsNextToEmpty(int buttonPos_x, int buttonPos_y)
         {
-            if ((buttonPos_x != 0) && (currentPos[buttonPos_x - 1, buttonPos_y] == -1))
+            if ((buttonPos_x != 0) && (currentPos[buttonPos_x - 1, buttonPos_y] == "empty"))
             { return true; }
-            else if ((buttonPos_x != 2) && (currentPos[buttonPos_x + 1, buttonPos_y] == -1))
+            else if ((buttonPos_x != 2) && (currentPos[buttonPos_x + 1, buttonPos_y] == "empty"))
             { return true; }
-            else if ((buttonPos_y != 0) && (currentPos[buttonPos_x, buttonPos_y - 1] == -1))
+            else if ((buttonPos_y != 0) && (currentPos[buttonPos_x, buttonPos_y - 1] == "empty"))
             { return true; }
-            else if ((buttonPos_y != 2) && (currentPos[buttonPos_x, buttonPos_y + 1] == -1))
+            else if ((buttonPos_y != 2) && (currentPos[buttonPos_x, buttonPos_y + 1] == "empty"))
             { return true; }
 
             return false;
@@ -108,11 +113,11 @@ namespace PicturePuzzle
 
         private void UpdateArrayPosition(int buttonPos_x, int buttonPos_y)
         {
-            (int emptyPos_x, int emptyPos_y) = FindButtonPosition(-1);
+            (int emptyPos_x, int emptyPos_y) = FindButtonPosition("empty");
             Debug.Write($"Empty {emptyPos_x}, {emptyPos_y}");
             Debug.Write($"\nButton {buttonPos_x}, {buttonPos_y}");
             currentPos[emptyPos_x, emptyPos_y] = currentPos[buttonPos_x, buttonPos_y];
-            currentPos[buttonPos_x, buttonPos_y] = -1;
+            currentPos[buttonPos_x, buttonPos_y] = "empty";
 
             Debug.Write('\n');
             for (int i = 0; i < currentPos.GetLength(0); i++)

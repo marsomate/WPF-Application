@@ -70,6 +70,14 @@
             Width="35"
             Margin="421,241,0,0"
             VerticalAlignment="Top"/>
+        <Button x:Name="randomButton"
+            Content="Randomize"
+            HorizontalAlignment="Left"
+            Margin="653,33,0,0"
+            VerticalAlignment="Top"
+            Height="34"
+            Width="77"
+            Click="RandomButton_Click"/>
 
     </Grid>
 </Window>
