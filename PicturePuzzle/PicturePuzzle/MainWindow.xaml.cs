@@ -22,12 +22,21 @@ namespace PicturePuzzle
     public partial class MainWindow : Window
     {
         GameEngine gameEngine;
+        private Thickness[,] margins;
 
         public MainWindow()
         {
             InitializeComponent();
 
             gameEngine = new GameEngine(GameSolved);
+
+            //Alapállapot, a gombok fix helyzete az ablakban. Ehhez hivatkozva lehet majd a gombokat mozgatni.
+            margins = new Thickness[,]
+{
+                { button1.Margin, button2.Margin, button3.Margin },
+                { button4.Margin, button5.Margin, button6.Margin },
+                { button7.Margin, button8.Margin, empty.Margin }
+};
         }
 
         private void GameSolved()

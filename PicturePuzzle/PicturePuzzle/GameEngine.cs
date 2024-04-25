@@ -4,6 +4,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Controls;
 
 namespace PicturePuzzle
@@ -22,15 +23,12 @@ namespace PicturePuzzle
                 { 4, 5, 6 },
                 { 7, 8, -1 }
             };
-
+            
             currentPos = new int[,]
             {
                 { 1, 2, 3 },
                 { 4, 5, 6 },
                 { 7, 8, -1 }
-                //{ 8, 6, 4 },
-                //{ 7, 1, 5 },
-                //{ 2, 3, -1 }
             };
 
             gameSolved = solved;
@@ -51,6 +49,31 @@ namespace PicturePuzzle
                 if(IsSolved())
                 { gameSolved(); }
             }
+        }
+
+        public void RandomizeCurrentPositions()
+        {
+            Random random = new Random();
+            int buttonIndex = -1;
+            List<Tuple<int, int>> takenPositions = new  List<Tuple<int, int>>();
+
+            do
+            {
+                for (int i = 0; i < currentPos.GetLength(0); i++)
+                {
+                    for (int j = 0; j < currentPos.GetLength(1); j++)
+                    {
+                        Tuple<int, int> new_x_y;
+                        do
+                        {
+                            new_x_y = new Tuple<int, int>(random.Next(0, 3), random.Next(0, 3));
+                            if (!takenPositions.Contains(new_x_y))
+                            { break; }
+
+                        } while (takenPositions.Contains(new_x_y));
+                    }
+                }
+            } while (buttonIndex <= 8);
         }
 
         private (int, int) FindButtonPosition(int buttonId)
