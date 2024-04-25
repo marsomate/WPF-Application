@@ -3,8 +3,8 @@
 /WPFTestApp/.vs
 bin
 obj
-.bin
-.v2
-.suo
+*.bin
+*.v2
+*.suo
 WPFTestApp/.vs/WPFTestApp/v17/.suo
 .suo
