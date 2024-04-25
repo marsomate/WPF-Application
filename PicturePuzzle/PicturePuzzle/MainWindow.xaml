@@ -6,69 +6,137 @@
         xmlns:local="clr-namespace:PicturePuzzle"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
+
+    <Window.Background>
+        <ImageBrush ImageSource="..\PicturePuzzle\kepek\background.jpg"/>
+    </Window.Background>
+
+    <Window.Resources>
+        <ControlTemplate x:Key="NoMouseOverButtonTemplate"   
+                 TargetType="Button">
+            <Border Background="{TemplateBinding Background}"  
+          BorderBrush="{TemplateBinding BorderBrush}"  
+          BorderThickness="{TemplateBinding BorderThickness}">
+                <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"  
+                      VerticalAlignment="{TemplateBinding VerticalContentAlignment}" />
+            </Border>
+
+            <ControlTemplate.Triggers>
+                <Trigger Property="IsEnabled"  
+             Value="False">
+                    <Setter Property="Background"  
+              Value="{x:Static SystemColors.ControlLightBrush}" />
+                    <Setter Property="Foreground"  
+              Value="{x:Static SystemColors.GrayTextBrush}" />
+                </Trigger>
+            </ControlTemplate.Triggers>
+        </ControlTemplate>
+    </Window.Resources>
+
     <Grid>
         <Button x:Name="button1"
-                Content="1"
                 HorizontalAlignment="Left"
-                Height="35"
-                Width="35"
-                Margin="341,161,0,0"
-                VerticalAlignment="Top" Click="button1_Click"/>
+                Height="50"
+                Width="50"
+                Margin="326,131,0,0"
+                VerticalAlignment="Top"
+                Template="{StaticResource NoMouseOverButtonTemplate}" 
+                Click="button1_Click">
+            <Button.Background>
+                <ImageBrush ImageSource="..\PicturePuzzle\kepek\kutya\kep1.jpg"/>
+            </Button.Background>
+        </Button>
         <Button x:Name="button2"
-            Content="2"
             HorizontalAlignment="Left"
-            Height="35"
-            Width="35"
-            Margin="381,161,0,0"
-            VerticalAlignment="Top" Click="button2_Click"/>
+            Height="50"
+            Width="50"
+            Margin="381,131,0,0"
+            VerticalAlignment="Top"
+            Template="{StaticResource NoMouseOverButtonTemplate}"
+            Click="button2_Click">
+            <Button.Background>
+                <ImageBrush ImageSource="..\PicturePuzzle\kepek\kutya\kep2.jpg"/>
+            </Button.Background>
+        </Button>
         <Button x:Name="button3"
-            Content="3"
             HorizontalAlignment="Left"
-            Height="35"
-            Width="35"
-            Margin="421,161,0,0"
-            VerticalAlignment="Top" Click="button3_Click"/>
+            Height="50"
+            Width="50"
+            Margin="436,131,0,0"
+            VerticalAlignment="Top"
+            Template="{StaticResource NoMouseOverButtonTemplate}"
+            Click="button3_Click">
+            <Button.Background>
+                <ImageBrush ImageSource="..\PicturePuzzle\kepek\kutya\kep3.jpg"/>
+            </Button.Background>
+        </Button>
         <Button x:Name="button4"
-            Content="4"
             HorizontalAlignment="Left"
-            Height="35"
-            Width="35"
-            Margin="341,201,0,0"
-            VerticalAlignment="Top" Click="button4_Click"/>
+            Height="50"
+            Width="50"
+            Margin="326,186,0,0"
+            VerticalAlignment="Top"
+            Template="{StaticResource NoMouseOverButtonTemplate}"
+            Click="button4_Click">
+            <Button.Background>
+                <ImageBrush ImageSource="..\PicturePuzzle\kepek\kutya\kep4.jpg"/>
+            </Button.Background>
+        </Button>
         <Button x:Name="button5"
-            Content="5"
             HorizontalAlignment="Left"
-            Height="35"
-            Width="35"
-            Margin="381,201,0,0"
-            VerticalAlignment="Top" Click="button5_Click"/>
+            Height="50"
+            Width="50"
+            Margin="381,186,0,0"
+            VerticalAlignment="Top"
+            Template="{StaticResource NoMouseOverButtonTemplate}"
+            Click="button5_Click">
+            <Button.Background>
+                <ImageBrush ImageSource="..\PicturePuzzle\kepek\kutya\kep5.jpg"/>
+            </Button.Background>
+        </Button>
         <Button x:Name="button6"
-            Content="6"
             HorizontalAlignment="Left"
-            Height="35"
-            Width="35"
-            Margin="421,201,0,0"
-            VerticalAlignment="Top" Click="button6_Click"/>
+            Height="50"
+            Width="50"
+            Margin="436,186,0,0"
+            VerticalAlignment="Top"
+            Template="{StaticResource NoMouseOverButtonTemplate}"
+            Click="button6_Click">
+            <Button.Background>
+                <ImageBrush ImageSource="..\PicturePuzzle\kepek\kutya\kep6.jpg"/>
+            </Button.Background>
+        </Button>
         <Button x:Name="button7"
-            Content="7"
             HorizontalAlignment="Left"
-            Height="35"
-            Width="35"
-            Margin="341,241,0,0"
-            VerticalAlignment="Top" Click="button7_Click"/>
+            Height="50"
+            Width="50"
+            Margin="326,241,0,0"
+            VerticalAlignment="Top"
+            Template="{StaticResource NoMouseOverButtonTemplate}"
+            Click="button7_Click">
+            <Button.Background>
+                <ImageBrush ImageSource="..\PicturePuzzle\kepek\kutya\kep7.jpg"/>
+            </Button.Background>
+        </Button>
         <Button x:Name="button8"
-            Content="8"
             HorizontalAlignment="Left"
-            Height="35"
-            Width="35"
+            Height="50"
+            Width="50"
             Margin="381,241,0,0"
-            VerticalAlignment="Top" Click="button8_Click"/>
+            VerticalAlignment="Top"
+            Template="{StaticResource NoMouseOverButtonTemplate}"
+            Click="button8_Click">
+            <Button.Background>
+                <ImageBrush ImageSource="..\PicturePuzzle\kepek\kutya\kep8.jpg"/>
+            </Button.Background>
+        </Button>
         <Button x:Name="empty"
             Content=""
             HorizontalAlignment="Left"
-            Height="35"
-            Width="35"
-            Margin="421,241,0,0"
+            Height="50"
+            Width="50"
+            Margin="436,241,0,0"
+            Template="{StaticResource NoMouseOverButtonTemplate}"
             VerticalAlignment="Top"/>
         <Button x:Name="randomButton"
             Content="Randomize"

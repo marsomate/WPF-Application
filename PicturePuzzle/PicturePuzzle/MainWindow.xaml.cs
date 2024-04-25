@@ -24,7 +24,7 @@ namespace PicturePuzzle
         GameEngine gameEngine;
         private Thickness[,] margins;
         private List<Button> buttons;
-
+        
         public MainWindow()
         {
             InitializeComponent();

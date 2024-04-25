@@ -37,6 +37,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -94,6 +95,36 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="kepek\kutya\1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="kepek\kutya\teljes.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="kepek\kutya\kep1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="kepek\kutya\kep3.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="kepek\kutya\kep4.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="kepek\kutya\kep5.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="kepek\kutya\kep6.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="kepek\kutya\kep7.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="kepek\kutya\kep8.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="kepek\kutya\kep2.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
