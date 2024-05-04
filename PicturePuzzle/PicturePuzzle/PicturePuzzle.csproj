@@ -98,37 +98,37 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Images\1.jpg" />
+    <Resource Include="Images\1.jpg" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Images\teljes.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Images\kep1.jpg" />
+    <Resource Include="Images\kep1.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Images\kep3.jpg" />
+    <Resource Include="Images\kep3.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Images\kep4.jpg" />
+    <Resource Include="Images\kep4.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Images\kep5.jpg" />
+    <Resource Include="Images\kep5.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Images\kep6.jpg" />
+    <Resource Include="Images\kep6.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Images\kep7.jpg" />
+    <Resource Include="Images\kep7.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Images\kep8.jpg" />
+    <Resource Include="Images\kep8.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Images\kep2.jpg" />
+    <Resource Include="Images\kep2.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Images\background.jpg" />
+    <Resource Include="Images\background.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

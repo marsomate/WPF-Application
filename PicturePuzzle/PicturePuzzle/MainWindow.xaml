@@ -43,7 +43,7 @@
                 Template="{StaticResource NoMouseOverButtonTemplate}" 
                 Click="button1_Click">
             <Button.Background>
-                <ImageBrush ImageSource="/Images/kep1.jpg"/>
+                <ImageBrush ImageSource="Images/kep1.jpg"/>
             </Button.Background>
         </Button>
         <Button x:Name="button2"
