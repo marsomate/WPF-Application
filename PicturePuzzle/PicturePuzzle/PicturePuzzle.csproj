@@ -86,6 +86,7 @@
     </Compile>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
+      <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
@@ -97,37 +98,37 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="kepek\kutya\1.jpg" />
+    <None Include="Images\1.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="kepek\kutya\teljes.jpg" />
+    <None Include="Images\teljes.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="kepek\kutya\kep1.jpg" />
+    <None Include="Images\kep1.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="kepek\kutya\kep3.jpg" />
+    <None Include="Images\kep3.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="kepek\kutya\kep4.jpg" />
+    <None Include="Images\kep4.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="kepek\kutya\kep5.jpg" />
+    <None Include="Images\kep5.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="kepek\kutya\kep6.jpg" />
+    <None Include="Images\kep6.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="kepek\kutya\kep7.jpg" />
+    <None Include="Images\kep7.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="kepek\kutya\kep8.jpg" />
+    <None Include="Images\kep8.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="kepek\kutya\kep2.jpg" />
+    <None Include="Images\kep2.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="kepek\background.jpg" />
+    <None Include="Images\background.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

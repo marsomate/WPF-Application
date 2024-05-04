@@ -8,7 +8,7 @@
         Title="MainWindow" Height="450" Width="800">
 
     <Window.Background>
-        <ImageBrush ImageSource="C:\Users\placi\Documents\Egyetem\4.félév\WPF-Application\PicturePuzzle\PicturePuzzle\kepek\background.jpg" Opacity="0.8"/>
+        <ImageBrush ImageSource="Images\background.jpg" Opacity="0.8"/>
     </Window.Background>
 
     <Window.Resources>
@@ -43,7 +43,7 @@
                 Template="{StaticResource NoMouseOverButtonTemplate}" 
                 Click="button1_Click">
             <Button.Background>
-                <ImageBrush ImageSource="C:\Users\placi\Documents\Egyetem\4.félév\WPF-Application\PicturePuzzle\PicturePuzzle\kepek\kutya\kep1.jpg"/>
+                <ImageBrush ImageSource="/Images/kep1.jpg"/>
             </Button.Background>
         </Button>
         <Button x:Name="button2"
@@ -55,7 +55,7 @@
             Template="{StaticResource NoMouseOverButtonTemplate}"
             Click="button2_Click">
             <Button.Background>
-                <ImageBrush ImageSource="C:\Users\placi\Documents\Egyetem\4.félév\WPF-Application\PicturePuzzle\PicturePuzzle\kepek\kutya\kep2.jpg"/>
+                <ImageBrush ImageSource="/Images/kep2.jpg"/>
             </Button.Background>
         </Button>
         <Button x:Name="button3"
@@ -67,7 +67,7 @@
             Template="{StaticResource NoMouseOverButtonTemplate}"
             Click="button3_Click">
             <Button.Background>
-                <ImageBrush ImageSource="C:\Users\placi\Documents\Egyetem\4.félév\WPF-Application\PicturePuzzle\PicturePuzzle\kepek\kutya\kep3.jpg"/>
+                <ImageBrush ImageSource="/Images/kep3.jpg"/>
             </Button.Background>
         </Button>
         <Button x:Name="button4"
@@ -79,7 +79,7 @@
             Template="{StaticResource NoMouseOverButtonTemplate}"
             Click="button4_Click">
             <Button.Background>
-                <ImageBrush ImageSource="C:\Users\placi\Documents\Egyetem\4.félév\WPF-Application\PicturePuzzle\PicturePuzzle\kepek\kutya\kep4.jpg"/>
+                <ImageBrush ImageSource="/Images/kep4.jpg"/>
             </Button.Background>
         </Button>
         <Button x:Name="button5"
@@ -91,7 +91,7 @@
             Template="{StaticResource NoMouseOverButtonTemplate}"
             Click="button5_Click">
             <Button.Background>
-                <ImageBrush ImageSource="C:\Users\placi\Documents\Egyetem\4.félév\WPF-Application\PicturePuzzle\PicturePuzzle\kepek\kutya\kep5.jpg"/>
+                <ImageBrush ImageSource="/Images/kep5.jpg"/>
             </Button.Background>
         </Button>
         <Button x:Name="button6"
@@ -103,7 +103,7 @@
             Template="{StaticResource NoMouseOverButtonTemplate}"
             Click="button6_Click">
             <Button.Background>
-                <ImageBrush ImageSource="C:\Users\placi\Documents\Egyetem\4.félév\WPF-Application\PicturePuzzle\PicturePuzzle\kepek\kutya\kep6.jpg"/>
+                <ImageBrush ImageSource="/Images/kep6.jpg"/>
             </Button.Background>
         </Button>
         <Button x:Name="button7"
@@ -115,7 +115,7 @@
             Template="{StaticResource NoMouseOverButtonTemplate}"
             Click="button7_Click">
             <Button.Background>
-                <ImageBrush ImageSource="C:\Users\placi\Documents\Egyetem\4.félév\WPF-Application\PicturePuzzle\PicturePuzzle\kepek\kutya\kep7.jpg"/>
+                <ImageBrush ImageSource="/Images/kep7.jpg"/>
             </Button.Background>
         </Button>
         <Button x:Name="button8"
@@ -127,7 +127,7 @@
             Template="{StaticResource NoMouseOverButtonTemplate}"
             Click="button8_Click">
             <Button.Background>
-                <ImageBrush ImageSource="C:\Users\placi\Documents\Egyetem\4.félév\WPF-Application\PicturePuzzle\PicturePuzzle\kepek\kutya\kep8.jpg"/>
+                <ImageBrush ImageSource="/Images/kep8.jpg"/>
             </Button.Background>
         </Button>
         <Button x:Name="empty"
