@@ -18,7 +18,7 @@ namespace PicturePuzzle
     /// </summary>
     public partial class MainWindow : Window
     {
-        GameEngine gameEngine;
+        private GameEngine gameEngine;
         private Thickness[,] margins;
         private List<Button> buttons;
         
