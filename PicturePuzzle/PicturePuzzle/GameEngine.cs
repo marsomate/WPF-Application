@@ -9,6 +9,13 @@ using System.Windows.Controls;
 
 namespace PicturePuzzle
 {
+    /// <summary>
+    /// A <see cref="GameEngine"/> osztály felelős a játékmechanikák szolgáltatásáért, és a pillanatnyi pozíciók kezeléséért.
+    /// Paraméterként kapott delegáltakon keresztül (<see cref="gameSolved"/>, <see cref="syncPositions"/>) aktívan kommunikál a <see cref="MainWindow"/>
+    /// osztállyal, mely pedig az adatok megjelenítéséért felelős.
+    /// <see cref="currentPos"/>: Pozíció-mátrix: tárolja a gombok pillanatnyi pozícióját.
+    /// <see cref="solution"/>: tárolja a helyes megoldás mátrixát
+    /// </summary>
     public class GameEngine
     {
         public string[,] solution;
@@ -36,13 +43,19 @@ namespace PicturePuzzle
             syncPositions = syncPos;
         }
 
+        /// <summary>
+        /// A <see cref="TryMove(Button, Button, Action{Button, Button})"/> metódus megkeresi a lenyomott gomb pozícióját a <see cref="FindButtonPosition(string)"/>
+        /// metódus segítségével, és leellenőrzi, hogy az üres hely mellett található-e. Ha igen, akkor kicseréli a pozíciójukat a tárolt
+        /// tömbben, és a swapButtons paraméter segítségével a felhasználói felületen is.
+        /// </summary>
+        /// <param name="clickedButton">A lenyomott gomb</param>
+        /// <param name="emptyButton">Az üres hely</param>
+        /// <param name="swapButtons">Az a delegált, amely meghatározza a gombok kicserélésének módját. Ezt a <see cref="MainWindow"/> definiálja</param>
         public void TryMove(Button clickedButton, Button emptyButton, Action<Button, Button> swapButtons)
         {
             string buttonId = clickedButton.Name;
             (int buttonPos_x, int buttonPos_y) = FindButtonPosition(buttonId);
-            Debug.WriteLine(currentPos[0, 0]);
-            Debug.WriteLine(currentPos[1, 2]);
-            Debug.WriteLine(currentPos[2, 1]);
+
             if (IsNextToEmpty(buttonPos_x, buttonPos_y))
             {
                 swapButtons(clickedButton, emptyButton);
@@ -53,6 +66,12 @@ namespace PicturePuzzle
             }
         }
 
+        /// <summary>
+        /// A <see cref="RandomizeCurrentPositions"/> metódus a gombokat véletlenszerűen rendezi el a játéktérben.
+        /// Ezt úgy teszi meg, hogy a mátrixban tárolt pozíciók közül generál egy véletlenszerű mátrix-beli pozíciót,
+        /// és annak értékét rendeli hozzá a jelenleg soron lévő gombhoz. A véletlenszerűen generált pozíciókról egy listát
+        /// tárol, és duplikáció-elkerülést végez a segítségével.
+        /// </summary>
         public void RandomizeCurrentPositions()
         {
             Random random = new Random();
@@ -81,6 +100,12 @@ namespace PicturePuzzle
             syncPositions(currentPos);
         }
 
+        /// <summary>
+        /// A <see cref="FindButtonPosition(string)"/> metódus megkeresi a bemenő paraméterként kapott gomb pozícióját
+        /// a pozíció-mátrixban egy egyszerű kiválasztással.
+        /// </summary>
+        /// <param name="buttonId">A keresendő gomb neve</param>
+        /// <returns></returns>
         private (int, int) FindButtonPosition(string buttonId)
         {
             (int, int) buttonPos = (0, 0);
@@ -97,6 +122,12 @@ namespace PicturePuzzle
             return buttonPos;
         }
 
+        /// <summary>
+        /// Az <see cref="IsNextToEmpty(int, int)"/> metódus igaz értékkel tér vissza, ha a megadott pozíciójú gomb határos az üres térrel,
+        /// és hamis értékkel tér vissza, ha a megadott pozíciójú gomb nem határos az üres térrel.
+        /// </summary>
+        /// <param name="buttonPos_x">A keresett gomb x koordinátája</param>
+        /// <param name="buttonPos_y">A keresett gomb y koordinátája</param>
         private bool IsNextToEmpty(int buttonPos_x, int buttonPos_y)
         {
             if ((buttonPos_x != 0) && (currentPos[buttonPos_x - 1, buttonPos_y] == "empty"))
@@ -111,25 +142,23 @@ namespace PicturePuzzle
             return false;
         }
 
+        /// <summary>
+        /// Az <see cref="UpdateArrayPosition(int, int)"/> metódus felcseréli a paraméterként kapott koordináták mögött található gombot
+        /// az üres térrel a <see cref="GameEngine"/> által tárolt pozíció-mátrixban.
+        /// </summary>
+        /// <param name="buttonPos_x">A keresett gomb x koordinátája</param>
+        /// <param name="buttonPos_y">A keresett gomb y koordinátája</param>
         private void UpdateArrayPosition(int buttonPos_x, int buttonPos_y)
         {
             (int emptyPos_x, int emptyPos_y) = FindButtonPosition("empty");
-            Debug.Write($"Empty {emptyPos_x}, {emptyPos_y}");
-            Debug.Write($"\nButton {buttonPos_x}, {buttonPos_y}");
             currentPos[emptyPos_x, emptyPos_y] = currentPos[buttonPos_x, buttonPos_y];
             currentPos[buttonPos_x, buttonPos_y] = "empty";
-
-            Debug.Write('\n');
-            for (int i = 0; i < currentPos.GetLength(0); i++)
-            {
-                for (int j = 0; j < currentPos.GetLength(1); j++)
-                {
-                    Debug.Write(currentPos[i, j]);
-                }
-                Debug.Write('\n');
-            }
         }
 
+        /// <summary>
+        /// Az <see cref="IsSolved"/> metódus ellenőrzi, hogy a jelenlegi pozíció megegyezik-e a tárolt megoldás pozícióival.
+        /// </summary>
+        /// <returns>Igaz, ha a megoldás jó, hamis, ha a megoldás hibás</returns>
         private bool IsSolved()
         {
             bool solved = true;
