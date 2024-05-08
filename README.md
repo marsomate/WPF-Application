@@ -33,6 +33,7 @@ To get started with the Hangman Game, follow these steps:
 
 ## TODO:
 - ///Summary
+- Menu background
 - Make it fully resposive
 - Make a menu for other games
 
