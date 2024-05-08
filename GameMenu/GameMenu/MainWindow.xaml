@@ -1,0 +1,27 @@
+﻿<Window x:Class="GameMenu.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:GameMenu"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <Button x:Name="TicTacToe_button"
+                Content="Amőba"
+                Margin="96,124,560,262"
+                Click="TicTacToe_button_Click"/>
+        <Button x:Name="Hangman_button"
+                Content="Akasztófa"
+                Margin="96,195,560,191"
+                Click="Hangman_button_Click"/>
+        <Button x:Name="PicturePuzzle_button"
+                Content="Puzzle"
+                Margin="96,264,560,122"
+                Click="PicturePuzzle_button_Click"/>
+        <Label Content="Máté Balázs" HorizontalAlignment="Left" Height="24" Margin="245,124,0,0" VerticalAlignment="Top" Width="155"/>
+        <Label Content="Marsó Máté" HorizontalAlignment="Left" Height="24" Margin="245,199,0,0" VerticalAlignment="Top" Width="155"/>
+        <Label Content="Pásztóhy László Ádám" HorizontalAlignment="Left" Height="24" Margin="245,264,0,0" VerticalAlignment="Top" Width="155"/>
+
+    </Grid>
+</Window>
