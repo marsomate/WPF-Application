@@ -112,6 +112,24 @@ namespace TicTacToe
             return true;
         }
 
+        /// <summary>
+        /// Megoldás terv
+        /// 1. Felhasználói felület kialakítása: WPF alkalmazás segítségével elkészítettük a játékfelületet, amely tartalmazza a 3x3-as játéktáblát és a "Restart" gombot.
+        /// 2. Játéklogika implementációja: A játéklogikát C#-ban írtuk meg, beleértve a játéktábla állapotának kezelését, a játékosok váltakozását és a győzelmi/döntetlen feltételek ellenőrzését.
+        /// 3. Eseménykezelés: A játéktáblán történő kattintásokat és a "Restart" gomb megnyomását eseménykezelők kezelik, amelyek aktiválják a megfelelő játéklogikát.
+        /// 
+        /// Osztályok
+        /// - MainWindow: A fő ablak osztálya, amely tartalmazza a játékfelületet és kezeli a játéklogikát.
+        /// - GameLogic: A játéklogika osztálya, amely felelős a játéktábla állapotának kezeléséért és a győzelmi/döntetlen feltételek ellenőrzéséért.
+        /// 
+        /// Használati útmutató
+        /// 1. Indítsd el az alkalmazást.
+        /// 2. Kattints a játéktáblán egy üres mezőre a szimbólumod elhelyezéséhez.
+        /// 3. Váltakozva helyezd el a szimbólumokat mindaddig, amíg valaki nyer vagy a játék döntetlen lesz.
+        /// 4. Amennyiben valaki nyer vagy a játék döntetlen lesz, nyomj a "Restart" gombra az új játék indításához
+        ///
+        /// Ez a fejlesztői dokumentáció segít megismerni és megérteni a Tic Tac Toe játék alapvető működését és implementációját.
+        /// </summary>
         private void RestartGame()
         {
             // Clear the board and reset the buttons

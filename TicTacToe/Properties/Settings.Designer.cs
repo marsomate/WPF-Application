@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace MateBalazsSzokereso.Properties
+namespace TicTacToe.Properties
 {
 
 
