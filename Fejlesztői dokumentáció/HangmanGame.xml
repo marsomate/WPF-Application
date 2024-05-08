@@ -1,0 +1,59 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>WPFTestApp</name>
+    </assembly>
+    <members>
+        <member name="T:WPFTestApp.App">
+            <summary>
+            Interaction logic for App.xaml
+            </summary>
+            <summary>
+            App
+            </summary>
+        </member>
+        <member name="M:WPFTestApp.App.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="M:WPFTestApp.App.Main">
+            <summary>
+            Application Entry Point.
+            </summary>
+        </member>
+        <member name="T:HangmanGame.MainWindow">
+            <summary>
+            A Windows alkalmazás főablaka, amely tartalmazza a Akasztófa játék logikáját és felhasználói felületét.
+            </summary>
+            <summary>
+            MainWindow
+            </summary>
+        </member>
+        <member name="M:HangmanGame.MainWindow.#ctor">
+            <summary>
+            A MainWindow osztály konstruktora, amely inicializálja az ablakot és feliratkozik a Loaded eseményre.
+            </summary>
+        </member>
+        <member name="M:HangmanGame.MainWindow.MainWindow_Loaded(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>
+            A MainWindow osztály Loaded eseménykezelője, amely meghívja a játék inicializálását.
+            </summary>
+        </member>
+        <member name="M:HangmanGame.MainWindow.InitializeGame">
+            <summary>
+            Inicializálja a játékot, kiválaszt egy véletlen szót a szókincsből.
+            </summary>
+        </member>
+        <member name="M:HangmanGame.MainWindow.GuessButton_Click(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>
+            A "Tippelés" gomb eseménykezelője, amely ellenőrzi a felhasználó által megadott tippet és feldolgozza azt.
+            </summary>
+        </member>
+        <member name="M:HangmanGame.MainWindow.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+    </members>
+</doc>
