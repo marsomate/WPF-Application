@@ -4,6 +4,9 @@ using System.Windows;
 
 namespace HangmanGame
 {
+    /// <summary>
+    /// A Windows alkalmazás főablaka, amely tartalmazza a Akasztófa játék logikáját és felhasználói felületét.
+    /// </summary>
     public partial class MainWindow : Window
     {
         private string wordToGuess;
@@ -11,42 +14,54 @@ namespace HangmanGame
         private int attemptsLeft = 6;
         private List<char> wrongGuesses = new List<char>();
 
+        /// <summary>
+        /// A MainWindow osztály konstruktora, amely inicializálja az ablakot és feliratkozik a Loaded eseményre.
+        /// </summary>
         public MainWindow()
         {
             InitializeComponent();
-            Loaded += MainWindow_Loaded; // Subscribe to the Loaded event
+            Loaded += MainWindow_Loaded; // Feliratkozás a Loaded eseményre
         }
 
+        /// <summary>
+        /// A MainWindow osztály Loaded eseménykezelője, amely meghívja a játék inicializálását.
+        /// </summary>
         private void MainWindow_Loaded(object sender, RoutedEventArgs e)
         {
             InitializeGame();
         }
 
+        /// <summary>
+        /// Inicializálja a játékot, kiválaszt egy véletlen szót a szókincsből.
+        /// </summary>
         private void InitializeGame()
         {
-            // Array of words to guess
-            string[] words = { "hangman", "programming", "computer", "keyboard", "algorithm", "software" };
+            // Szavak tömbje a kitalálandó szavakhoz
+            string[] words = { "akasztófa", "programozás", "számítógép", "billentyűzet", "algoritmus", "szoftver" };
 
-            // Select a random word from the array
+            // Véletlen szó kiválasztása a tömbből
             Random random = new Random();
             wordToGuess = words[random.Next(words.Length)];
 
-            // Initialize displayed word
+            // Inicializálás a megjelenített szóval
             displayedWord = new string('_', wordToGuess.Length);
             wordToGuessTextBlock.Text = displayedWord;
         }
 
+        /// <summary>
+        /// A "Tippelés" gomb eseménykezelője, amely ellenőrzi a felhasználó által megadott tippet és feldolgozza azt.
+        /// </summary>
         private void GuessButton_Click(object sender, RoutedEventArgs e)
         {
             string guess = guessTextBox.Text.ToLower();
 
             if (guess.Length != 1 || !char.IsLetter(guess[0]))
             {
-                resultTextBlock.Text = "Invalid guess. Please enter a single letter.";
+                resultTextBlock.Text = "Érvénytelen tipp. Kérlek adj meg egyetlen betűt.";
                 return;
             }
 
-            // Check if the guessed letter is in the word
+            // Ellenőrizze, hogy a tippelt betű benne van-e a szóban
             bool letterFound = false;
             char guessedChar = guess[0];
             for (int i = 0; i < wordToGuess.Length; i++)
@@ -62,33 +77,33 @@ namespace HangmanGame
             {
                 attemptsLeft--;
                 wrongGuesses.Add(guessedChar);
-                resultTextBlock.Text = $"Incorrect guess! {attemptsLeft} attempts left.";
+                resultTextBlock.Text = $"Rossz tipp! Még {attemptsLeft} kísérlet van hátra.";
             }
             else
             {
-                resultTextBlock.Text = "Correct guess!";
+                resultTextBlock.Text = "Helyes tipp!";
             }
 
             wordToGuessTextBlock.Text = displayedWord;
 
-            // Check if the word has been guessed completely
+            // Ellenőrizzük, hogy a szót teljesen kitalálták-e
             if (displayedWord == wordToGuess)
             {
-                resultTextBlock.Text = "Congratulations! You've guessed the word!";
+                resultTextBlock.Text = "Gratulálok! Kitaláltad a szót!";
                 guessTextBox.IsEnabled = false;
             }
 
-            // Check if the player has used all attempts
+            // Ellenőrizzük, hogy a játékos felhasználta-e az összes lehetőséget
             if (attemptsLeft == 0)
             {
-                resultTextBlock.Text = $"Game over! The word was: {wordToGuess}.";
+                resultTextBlock.Text = $"Játék vége! A szó: {wordToGuess}.";
                 guessTextBox.IsEnabled = false;
             }
 
-            guessTextBox.Text = ""; // Clear the textbox after each guess
+            guessTextBox.Text = ""; // Törlés a szövegdobozból minden tipp után
 
-            // Display wrong guesses
-            wrongGuessesTextBlock.Text = "Wrong guesses: " + string.Join(", ", wrongGuesses);
+            // Helytelen tippek megjelenítése
+            wrongGuessesTextBlock.Text = "Helytelen tippek: " + string.Join(", ", wrongGuesses);
         }
     }
 }
