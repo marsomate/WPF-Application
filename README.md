@@ -1,3 +1,7 @@
+# Menu
+
+The menu is a simple WPF application to choose between games
+
 # Hangman Game
 
 Hangman Game is a simple WPF application developed in C#. It allows users to play the classic Hangman game.
