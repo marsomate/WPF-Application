@@ -1,0 +1,82 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>TicTacToe</name>
+    </assembly>
+    <members>
+        <member name="T:TicTacToe.App">
+            <summary>
+            Interaction logic for App.xaml
+            </summary>
+            <summary>
+            App
+            </summary>
+        </member>
+        <member name="M:TicTacToe.App.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="M:TicTacToe.App.Main">
+            <summary>
+            Application Entry Point.
+            </summary>
+        </member>
+        <member name="T:TicTacToe.MainWindow">
+            <summary>
+            MainWindow
+            </summary>
+        </member>
+        <member name="M:TicTacToe.MainWindow.InitializeBoard">
+            <summary>
+            Inicializálja a játéktáblát üres cellákkal.
+            </summary>
+        </member>
+        <member name="M:TicTacToe.MainWindow.Button_Click(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>
+            Eseménykezelő, ami lefut, amikor egy gombra kattintanak a játéktáblán.
+            Frissíti a táblát és ellenőrzi a győzelmi vagy döntetlen feltételeket.
+            </summary>
+            <param name="sender">Az eseményt kiváltó gomb.</param>
+            <param name="e">Az esemény argumentumai.</param>
+        </member>
+        <member name="M:TicTacToe.MainWindow.CheckWin">
+            <summary>
+            Ellenőrzi a játéktábla állapotát, hogy van-e győztes.
+            </summary>
+            <returns>True, ha van győztes, egyébként false.</returns>
+        </member>
+        <member name="M:TicTacToe.MainWindow.CheckDraw">
+            <summary>
+            Ellenőrzi a játéktábla állapotát, hogy van-e döntetlen.
+            </summary>
+            <returns>True, ha a játék döntetlen, egyébként false.</returns>
+        </member>
+        <member name="M:TicTacToe.MainWindow.RestartGame">
+            <summary>
+            Új játék kezdése: törli a játéktáblát és visszaállítja a játékot kezdő állapotra.
+            </summary>        
+        </member>
+        <member name="M:TicTacToe.MainWindow.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:TicTacToe.Properties.Resources">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:TicTacToe.Properties.Resources.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:TicTacToe.Properties.Resources.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+    </members>
+</doc>
