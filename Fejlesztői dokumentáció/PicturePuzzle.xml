@@ -1,0 +1,202 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>PicturePuzzle</name>
+    </assembly>
+    <members>
+        <member name="T:PicturePuzzle.App">
+            <summary>
+            App
+            </summary>
+        </member>
+        <member name="M:PicturePuzzle.App.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="M:PicturePuzzle.App.Main">
+            <summary>
+            Application Entry Point.
+            </summary>
+        </member>
+        <member name="T:PicturePuzzle.GameEngine">
+            <summary>
+            A <see cref="T:PicturePuzzle.GameEngine"/> osztály felelős a játékmechanikák szolgáltatásáért, és a pillanatnyi pozíciók kezeléséért.
+            Paraméterként kapott delegáltakon keresztül (<see cref="F:PicturePuzzle.GameEngine.gameSolved"/>, <see cref="F:PicturePuzzle.GameEngine.syncPositions"/>) aktívan kommunikál a <see cref="T:PicturePuzzle.MainWindow"/>
+            osztállyal, mely pedig az adatok megjelenítéséért felelős.
+            <see cref="F:PicturePuzzle.GameEngine.currentPos"/>: Pozíció-mátrix: tárolja a gombok pillanatnyi pozícióját.
+            <see cref="F:PicturePuzzle.GameEngine.solution"/>: tárolja a helyes megoldás mátrixát
+            </summary>
+        </member>
+        <member name="M:PicturePuzzle.GameEngine.TryMove(System.Windows.Controls.Button,System.Windows.Controls.Button,System.Action{System.Windows.Controls.Button,System.Windows.Controls.Button})">
+            <summary>
+            A <see cref="M:PicturePuzzle.GameEngine.TryMove(System.Windows.Controls.Button,System.Windows.Controls.Button,System.Action{System.Windows.Controls.Button,System.Windows.Controls.Button})"/> metódus megkeresi a lenyomott gomb pozícióját a <see cref="M:PicturePuzzle.GameEngine.FindButtonPosition(System.String)"/>
+            metódus segítségével, és leellenőrzi, hogy az üres hely mellett található-e. Ha igen, akkor kicseréli a pozíciójukat a tárolt
+            tömbben, és a swapButtons paraméter segítségével a felhasználói felületen is.
+            </summary>
+            <param name="clickedButton">A lenyomott gomb</param>
+            <param name="emptyButton">Az üres hely</param>
+            <param name="swapButtons">Az a delegált, amely meghatározza a gombok kicserélésének módját. Ezt a <see cref="T:PicturePuzzle.MainWindow"/> definiálja</param>
+        </member>
+        <member name="M:PicturePuzzle.GameEngine.RandomizeCurrentPositions">
+            <summary>
+            A <see cref="M:PicturePuzzle.GameEngine.RandomizeCurrentPositions"/> metódus a gombokat véletlenszerűen rendezi el a játéktérben.
+            Ezt úgy teszi meg, hogy a mátrixban tárolt pozíciók közül generál egy véletlenszerű mátrix-beli pozíciót,
+            és annak értékét rendeli hozzá a jelenleg soron lévő gombhoz. A véletlenszerűen generált pozíciókról egy listát
+            tárol, és duplikáció-elkerülést végez a segítségével.
+            </summary>
+        </member>
+        <member name="M:PicturePuzzle.GameEngine.FindButtonPosition(System.String)">
+            <summary>
+            A <see cref="M:PicturePuzzle.GameEngine.FindButtonPosition(System.String)"/> metódus megkeresi a bemenő paraméterként kapott gomb pozícióját
+            a pozíció-mátrixban egy egyszerű kiválasztással.
+            </summary>
+            <param name="buttonId">A keresendő gomb neve</param>
+            <returns></returns>
+        </member>
+        <member name="M:PicturePuzzle.GameEngine.IsNextToEmpty(System.Int32,System.Int32)">
+            <summary>
+            Az <see cref="M:PicturePuzzle.GameEngine.IsNextToEmpty(System.Int32,System.Int32)"/> metódus igaz értékkel tér vissza, ha a megadott pozíciójú gomb határos az üres térrel,
+            és hamis értékkel tér vissza, ha a megadott pozíciójú gomb nem határos az üres térrel.
+            </summary>
+            <param name="buttonPos_x">A keresett gomb x koordinátája</param>
+            <param name="buttonPos_y">A keresett gomb y koordinátája</param>
+        </member>
+        <member name="M:PicturePuzzle.GameEngine.UpdateArrayPosition(System.Int32,System.Int32)">
+            <summary>
+            Az <see cref="M:PicturePuzzle.GameEngine.UpdateArrayPosition(System.Int32,System.Int32)"/> metódus felcseréli a paraméterként kapott koordináták mögött található gombot
+            az üres térrel a <see cref="T:PicturePuzzle.GameEngine"/> által tárolt pozíció-mátrixban.
+            </summary>
+            <param name="buttonPos_x">A keresett gomb x koordinátája</param>
+            <param name="buttonPos_y">A keresett gomb y koordinátája</param>
+        </member>
+        <member name="M:PicturePuzzle.GameEngine.IsSolved">
+            <summary>
+            Az <see cref="M:PicturePuzzle.GameEngine.IsSolved"/> metódus ellenőrzi, hogy a jelenlegi pozíció megegyezik-e a tárolt megoldás pozícióival.
+            </summary>
+            <returns>Igaz, ha a megoldás jó, hamis, ha a megoldás hibás</returns>
+        </member>
+        <member name="T:PicturePuzzle.MainWindow">
+            <summary>
+            A <see cref="T:PicturePuzzle.MainWindow"/> osztály felelős a <see cref="F:PicturePuzzle.MainWindow.gameEngine"/> objektum által szolgáltatott adatok vizuális megjelenítéséért.
+            Tartalma:
+            <list type="bullet">
+            <item>
+                <see cref="F:PicturePuzzle.MainWindow.gameEngine"/>: egy <see cref="T:PicturePuzzle.GameEngine"/> típusú változó, amely a program működéséért felelős</item>
+            <item>
+                <see cref="F:PicturePuzzle.MainWindow.margins"/>: egy <see cref="!:Thickness[,]"/> típusú változó, amely a gombok helyzetét tárolja, a gombok margóinak vastagsága segítségével</item>
+            <item>
+                <see cref="F:PicturePuzzle.MainWindow.buttons"/>: egy <see cref="T:System.Collections.Generic.List`1"/> típusú változó, mely a játékban szereplő gombok listája</item>
+            </list>
+            </summary>
+            <summary>
+            MainWindow
+            </summary>
+        </member>
+        <member name="M:PicturePuzzle.MainWindow.GameSolved">
+            <summary>
+            A játék sikeres megoldása esetén a <see cref="M:PicturePuzzle.MainWindow.GameSolved"/> metódus kerül meghívásra.
+            </summary>
+        </member>
+        <member name="M:PicturePuzzle.MainWindow.SwapButtons(System.Windows.Controls.Button,System.Windows.Controls.Button)">
+            <summary>
+            A <see cref="M:PicturePuzzle.MainWindow.SwapButtons(System.Windows.Controls.Button,System.Windows.Controls.Button)"/> metódus a két paraméterként kapott gomb pozícióját kicseréli
+            az őket határoló margók szélességének megváltoztatásával.
+            </summary>
+            <param name="button1"></param>
+            <param name="button2"></param>
+        </member>
+        <member name="M:PicturePuzzle.MainWindow.SynchronizePositions(System.String[0:,0:])">
+            <summary>
+            A <see cref="M:PicturePuzzle.MainWindow.SynchronizePositions(System.String[0:,0:])"/> metódus paraméterként kap egy pozíciókból álló táblázatot (kétdimenziós tömb)
+            és a <see cref="T:PicturePuzzle.MainWindow"/> által tárolt <see cref="F:PicturePuzzle.MainWindow.buttons"/> listában található gombok pozícióját szinkronizálja a
+            beérkező táblázat alapján.
+            </summary>
+            <param name="currentPos"></param>
+        </member>
+        <member name="M:PicturePuzzle.MainWindow.RandomButton_Click(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>
+            A <see cref="M:PicturePuzzle.MainWindow.RandomButton_Click(System.Object,System.Windows.RoutedEventArgs)"/> metódus a <see cref="F:PicturePuzzle.MainWindow.gameEngine"/> objektum RandomizeCurrentPositions
+            metódusát hívja meg, mely véletlenszerűen helyezi el a gombokat a játéktéren.
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:PicturePuzzle.MainWindow.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:PicturePuzzle.Properties.Resources">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:PicturePuzzle.Properties.Resources.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:PicturePuzzle.Properties.Resources.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="P:PicturePuzzle.Properties.Resources._1">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:PicturePuzzle.Properties.Resources.background">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:PicturePuzzle.Properties.Resources.kep1">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:PicturePuzzle.Properties.Resources.kep2">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:PicturePuzzle.Properties.Resources.kep3">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:PicturePuzzle.Properties.Resources.kep4">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:PicturePuzzle.Properties.Resources.kep5">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:PicturePuzzle.Properties.Resources.kep6">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:PicturePuzzle.Properties.Resources.kep7">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:PicturePuzzle.Properties.Resources.kep8">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:PicturePuzzle.Properties.Resources.teljes">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+    </members>
+</doc>
