@@ -5,43 +5,50 @@ namespace TicTacToe
 {
     public partial class MainWindow : Window
     {
-        private bool isPlayerXTurn = true; // Player X starts the game
-        private string[,] board = new string[3, 3]; // Represents the game board
+        private bool isPlayerXTurn = true; // X kezdi a kört
+        private string[,] board = new string[3, 3]; // játéktábla
 
         public MainWindow()
         {
             InitializeComponent();
             InitializeBoard();
         }
-
+        /// <summary>
+        /// Inicializálja a játéktáblát üres cellákkal.
+        /// </summary>
         private void InitializeBoard()
         {
-            // Clear the board
+            // tábla radírozása
             for (int i = 0; i < 3; i++)
             {
                 for (int j = 0; j < 3; j++)
                 {
-                    board[i, j] = ""; // Empty cell
+                    board[i, j] = ""; // üres cella
                 }
             }
         }
-
+        /// <summary>
+        /// Eseménykezelő, ami lefut, amikor egy gombra kattintanak a játéktáblán.
+        /// Frissíti a táblát és ellenőrzi a győzelmi vagy döntetlen feltételeket.
+        /// </summary>
+        /// <param name="sender">Az eseményt kiváltó gomb.</param>
+        /// <param name="e">Az esemény argumentumai.</param>
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             Button clickedButton = (Button)sender;
             int row = Grid.GetRow(clickedButton);
             int col = Grid.GetColumn(clickedButton);
 
-            // Check if the cell is already occupied
+            // Ellenőrzi, hogy a cella üres-e
             if (board[row, col] == "")
             {
-                // Update the board
+                // Tábla frissítése
                 board[row, col] = isPlayerXTurn ? "X" : "O";
 
-                // Update the button content
+                // Tartalom frissítése
                 clickedButton.Content = board[row, col];
 
-                // Check for a win
+                // Győzelem ellenőrzése
                 if (CheckWin())
                 {
                     MessageBox.Show($"Player {(isPlayerXTurn ? "X" : "O")} wins!");
@@ -49,7 +56,7 @@ namespace TicTacToe
                     return;
                 }
 
-                // Check for a draw
+                // Döntetlen ellenőrzése
                 if (CheckDraw())
                 {
                     MessageBox.Show("It's a draw!");
@@ -57,14 +64,17 @@ namespace TicTacToe
                     return;
                 }
 
-                // Switch player turn
+                // Alakzat cseréje
                 isPlayerXTurn = !isPlayerXTurn;
             }
         }
-
+        /// <summary>
+        /// Ellenőrzi a játéktábla állapotát, hogy van-e győztes.
+        /// </summary>
+        /// <returns>True, ha van győztes, egyébként false.</returns>
         private bool CheckWin()
         {
-            // Check rows
+            // Sorok ellenőrzése
             for (int i = 0; i < 3; i++)
             {
                 if (board[i, 0] != "" && board[i, 0] == board[i, 1] && board[i, 1] == board[i, 2])
@@ -73,7 +83,7 @@ namespace TicTacToe
                 }
             }
 
-            // Check columns
+            // Oszlopok ellenőrzése
             for (int j = 0; j < 3; j++)
             {
                 if (board[0, j] != "" && board[0, j] == board[1, j] && board[1, j] == board[2, j])
@@ -82,7 +92,7 @@ namespace TicTacToe
                 }
             }
 
-            // Check diagonals
+            // Átlók ellenőrzése
             if (board[0, 0] != "" && board[0, 0] == board[1, 1] && board[1, 1] == board[2, 2])
             {
                 return true;
@@ -94,10 +104,13 @@ namespace TicTacToe
 
             return false;
         }
-
+        /// <summary>
+        /// Ellenőrzi a játéktábla állapotát, hogy van-e döntetlen.
+        /// </summary>
+        /// <returns>True, ha a játék döntetlen, egyébként false.</returns>
         private bool CheckDraw()
         {
-            // Check if all cells are occupied
+            // Ellenőrzi, hogy az összes cella ki van-e töltve
             for (int i = 0; i < 3; i++)
             {
                 for (int j = 0; j < 3; j++)
@@ -111,32 +124,15 @@ namespace TicTacToe
 
             return true;
         }
-
         /// <summary>
-        /// Megoldás terv
-        /// 1. Felhasználói felület kialakítása: WPF alkalmazás segítségével elkészítettük a játékfelületet, amely tartalmazza a 3x3-as játéktáblát és a "Restart" gombot.
-        /// 2. Játéklogika implementációja: A játéklogikát C#-ban írtuk meg, beleértve a játéktábla állapotának kezelését, a játékosok váltakozását és a győzelmi/döntetlen feltételek ellenőrzését.
-        /// 3. Eseménykezelés: A játéktáblán történő kattintásokat és a "Restart" gomb megnyomását eseménykezelők kezelik, amelyek aktiválják a megfelelő játéklogikát.
-        /// 
-        /// Osztályok
-        /// - MainWindow: A fő ablak osztálya, amely tartalmazza a játékfelületet és kezeli a játéklogikát.
-        /// - GameLogic: A játéklogika osztálya, amely felelős a játéktábla állapotának kezeléséért és a győzelmi/döntetlen feltételek ellenőrzéséért.
-        /// 
-        /// Használati útmutató
-        /// 1. Indítsd el az alkalmazást.
-        /// 2. Kattints a játéktáblán egy üres mezőre a szimbólumod elhelyezéséhez.
-        /// 3. Váltakozva helyezd el a szimbólumokat mindaddig, amíg valaki nyer vagy a játék döntetlen lesz.
-        /// 4. Amennyiben valaki nyer vagy a játék döntetlen lesz, nyomj a "Restart" gombra az új játék indításához
-        ///
-        /// Ez a fejlesztői dokumentáció segít megismerni és megérteni a Tic Tac Toe játék alapvető működését és implementációját.
-        /// </summary>
+        /// Új játék kezdése: törli a játéktáblát és visszaállítja a játékot kezdő állapotra.
+        /// </summary>        
         private void RestartGame()
         {
-            // Clear the board and reset the buttons
+            // TÁbla törlése és játékkészre állítása
             isPlayerXTurn = true;
             InitializeBoard();
 
-            // Reset button content
             foreach (UIElement element in MainGrid.Children)
             {
                 if (element is Button button)
