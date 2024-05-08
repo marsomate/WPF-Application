@@ -7,10 +7,13 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
+        <Grid.Background>
+            <ImageBrush ImageSource="/background.jpg"/>
+        </Grid.Background>
         <Button Name="TicTacToe_button"
                 Content="Amőba"
                 HorizontalAlignment="Left"
-                Height="50" Margin="140,260,0,0"
+                Height="50" Margin="560,322,0,0"
                 VerticalAlignment="Top"
                 Width="140"
                 Click="TicTacToe_button_Click"
@@ -19,7 +22,7 @@
         <Button Name="Hangman_button"
         Content="Akasztófa"
         HorizontalAlignment="Left"
-        Height="50" Margin="140,115,0,0"
+        Height="50" Margin="100,322,0,0"
         VerticalAlignment="Top"
         Width="140"
         Click="Hangman_button_Click"
@@ -27,16 +30,16 @@
 
         <Button Name="PicturePuzzle_button"
         Content="Puzzle"
-        HorizontalAlignment="Left"
-        Height="50" Margin="140,187,0,0"
+        HorizontalAlignment="Center"
+        Height="50" Margin="0,322,0,0"
         VerticalAlignment="Top"
         Width="140"
         Click="PicturePuzzle_button_Click"
         />
-        <Label Content="" HorizontalAlignment="Left" Margin="285,120,0,0" VerticalAlignment="Top" Height="50" Width="115"/>
-        <Label Content="Marsó Máté" HorizontalAlignment="Left" Margin="306,115,0,0" VerticalAlignment="Top"/>
-        <Label Content="Pásztóhy László Ádám" HorizontalAlignment="Left" Margin="306,186,0,0" VerticalAlignment="Top"/>
-        <Label Content="Máté Balázs" HorizontalAlignment="Left" Margin="307,260,0,0" VerticalAlignment="Top"/>
+        <Label Content="" HorizontalAlignment="Left" Margin="628,235,0,0" VerticalAlignment="Top" Height="50" Width="115"/>
+        <Label Content="Marsó Máté" HorizontalAlignment="Left" Margin="141,383,0,0" VerticalAlignment="Top" Background="#FFFD804B"/>
+        <Label Content="Pásztóhy László Ádám" HorizontalAlignment="Center" Margin="0,383,0,0" VerticalAlignment="Top" Background="#FFFFDBC3"/>
+        <Label Content="Máté Balázs" HorizontalAlignment="Left" Margin="593,383,0,0" VerticalAlignment="Top" Background="#FFFD804A"/>
 
     </Grid>
 </Window>
