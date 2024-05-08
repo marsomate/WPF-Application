@@ -28,6 +28,7 @@ To get started with the Hangman Game, follow these steps:
 ## Contributing
 
 ## TODO:
+- ///Summary
 - Make it fully resposive
 - Make a menu for other games
 
